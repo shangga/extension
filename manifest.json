@@ -1,0 +1,45 @@
+{
+  "name": "自动签到",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "自动签到",
+  "icons" : {
+    "16" : "logo.png",
+    "48" : "logo.png",
+    "128" : "logo.png"
+  },
+  "browser_action": {
+    "default_title": "自动签到",
+    "default_icon": "logo.png"
+  },
+  "content_scripts": [
+    {
+      "exclude_matches": [
+        "https://www.baidu.com/*"
+      ],
+      "matches": [
+        "https://*/*"
+      ],
+      "js": [
+        "index.js"
+      ],
+      "all_frames": true,
+      "run_at": "document_end"
+    },
+    {
+      "matches": [
+        "https://www.baidu.com/*"
+      ],
+      "js": [
+        "switch.js"
+      ],
+      "all_frames": true,
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "<all_urls>",
+    "notifications"
+  ]
+}
